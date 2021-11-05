@@ -32,32 +32,63 @@
 // console.log(total);
 
 //Challenge #3------------------------------------------
-const Mark = {
-    fullName:'Mark Miller',
-    mass:78,
-    height:1.69,
-    calcBMI :function(){
-        this.bmi = this.mass/this.height**2;
-        return this.bmi;
+// const Mark = {
+//     fullName:'Mark Miller',
+//     mass:78,
+//     height:1.69,
+//     calcBMI :function(){
+//         this.bmi = this.mass/this.height**2;
+//         return this.bmi;
+//     }
+// }
+// const John = {
+//     fullName:'John Smith',
+//     mass:92,
+//     height:1.95,
+//     calcBMI:function(){
+//         this.bmi = this.mass/this.height**2;
+//         return this.bmi;
+//     }
+// }
+
+// Mark.calcBMI();
+// John.calcBMI();
+
+// console.log(Mark.bmi, John.bmi);
+
+// if(Mark.bmi>John.bmi){
+//     console.log(`${Mark.fullName}'s BMI(${Mark.bmi}) is higher than ${John.fullName}'s BMI(${John.bmi})`)
+// }else if(John.bmi>Mark.bmi){
+//     console.log(`${John.fullName}'s BMI(${John.bmi}) is higher than ${Mark.fullName}'s BMI(${Mark.bmi})`)
+// }
+
+//Challenge #4------------------------------------------
+
+function calcTip(bill){
+    if(5<=bill<=300){
+        return bill*0.15;
+    }else{
+        return bill*0.2;
     }
 }
-const John = {
-    fullName:'John Smith',
-    mass:92,
-    height:1.95,
-    calcBMI:function(){
-        this.bmi = this.mass/this.height**2;
-        return this.bmi;
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+const tips = [];
+const total = [];
+
+for(i=0, i<=10, i++){
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
+}
+console.log(bills, tips, totals);
+
+const calcAve = function(arr){
+    let sum = 0;
+    for(let i = 0; i<arr.length; i++){
+        sum = sum + arr[i];
     }
+    return sum/arr.length;
 }
 
-Mark.calcBMI();
-John.calcBMI();
-
-console.log(Mark.bmi, John.bmi);
-
-if(Mark.bmi>John.bmi){
-    console.log(`${Mark.fullName}'s BMI(${Mark.bmi}) is higher than ${John.fullName}'s BMI(${John.bmi})`)
-}else if(John.bmi>Mark.bmi){
-    console.log(`${John.fullName}'s BMI(${John.bmi}) is higher than ${Mark.fullName}'s BMI(${Mark.bmi})`)
-}
+console.log(calcAve([2,3,6]));
+console.log(calcAve(totals));
